@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html  xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+		<ui:composition template="/pages/layout/masterLayout.xhtml">
+		<ui:define name="conteudo">
+		<h:form>
+		
+			<h:panelGrid>
+				<f:facet name="">
+					<h:outputText value="Digite o nome do jogo que comprou:" />
+				</f:facet>
+				
+				<h:outputText value="Nome:" />
+				<h:inputText value="#{gameBean.nome}" />
+				
+                        </h:panelGrid>
+			<h:dataTable value="#{gameBean.games}" var="v" border="1">
+				<h:column>
+					<f:facet name="header">id</f:facet>
+					<h:outputLabel value="#{v.id}" />
+				</h:column>`
+				<h:column>
+					<f:facet name="header">Nome</f:facet>
+					<h:outputLabel value="#{v.nome}" />
+				</h:column>
+			</h:dataTable>
+                    <h:commandButton action="#{gameBean.adicionarGame}" value="Adicionar" />
+		</h:form>
+	</ui:define>
+	</ui:composition>
+		
+</html> 
